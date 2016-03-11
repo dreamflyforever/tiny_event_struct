@@ -23,6 +23,17 @@ int reg(cb user_func, int event)
 	return 0;
 }
 
+int unreg(int event)
+{
+	if (event > EVENT_NUMBER) {
+		printf("event > EVENT_NUMBER\n");
+		return -1;
+	}
+
+	func[event] = NULL;
+	return 0;
+}
+
 int send(int event, void *arg)
 {
 	if (event > EVENT_NUMBER) {
